@@ -1,4 +1,65 @@
 {
   "type": "kendo-ui-mobile",
-  "isNew": true
+  "views": [
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "homeView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:list",
+          "name": "homeViewModel",
+          "dataProvider": "progressDataProvider",
+          "collection": "CRM_Offer",
+          "imageField": "Logo",
+          "headerField": "name",
+          "subHeaderField": "Description",
+          "masterDetails": true,
+          "detailHeaderField": "name",
+          "detailSubHeaderField": "Offer_Date",
+          "detailDescriptionField": "Status",
+          "pullToRefresh": true,
+          "endlessScroll": true
+        }
+      ],
+      "title": "CRM Offers",
+      "addToNavigation": true,
+      "icon": "mostviewed"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "authenticationView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:authentication",
+          "name": "authenticationViewModel",
+          "dataProvider": "progressDataProvider",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "signinLabel": "Sign In",
+          "signinRedirect": "homeView",
+          "enableRegistration": false
+        }
+      ],
+      "title": "Login",
+      "addToNavigation": true,
+      "icon": "contacts"
+    }
+  ],
+  "dataProviders": [
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "progressDataProvider",
+      "catalogContent": "[{\"name\":\"CRM_Offer\",\"path\":\"jsdo\",\"displayName\":\"CRM Offer\",\"idProperty\":\"id\",\"schema\":{\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"CRM_Offer\":{\"type\":\"array\",\"items\":{\"additionalProperties\":false,\"properties\":{\"_id\":{\"type\":\"string\",\"default\":\"\",\"title\":\"_id\",\"name\":\"_id\"},\"comment\":{\"type\":\"string\",\"title\":\"Comments\",\"name\":\"comment\"},\"createdAt\":{\"type\":\"string\",\"title\":\"Created At\",\"format\":\"date-time\",\"name\":\"createdAt\"},\"createdBy\":{\"type\":\"number\",\"title\":\"Created By\",\"name\":\"createdBy\"},\"name\":{\"type\":\"string\",\"title\":\"CRM Offer\",\"name\":\"name\"},\"Customer\":{\"type\":\"string\",\"title\":\"Customer\",\"name\":\"Customer\"},\"Description\":{\"type\":\"string\",\"title\":\"Description\",\"name\":\"Description\"},\"id\":{\"type\":\"number\",\"title\":\"ID\",\"name\":\"id\"},\"Logo\":{\"type\":\"string\",\"title\":\"Logo\",\"name\":\"Logo\"},\"Offer_Date\":{\"type\":\"string\",\"title\":\"Offer Date\",\"format\":\"date\",\"name\":\"Offer_Date\"},\"Quote_ID\":{\"type\":\"string\",\"title\":\"Quote ID\",\"name\":\"Quote_ID\"},\"Status\":{\"type\":\"number\",\"title\":\"Status\",\"name\":\"Status\"},\"tag\":{\"type\":\"string\",\"title\":\"Tags\",\"name\":\"tag\"},\"updatedAt\":{\"type\":\"string\",\"title\":\"Updated At\",\"format\":\"date-time\",\"name\":\"updatedAt\"},\"updatedBy\":{\"type\":\"number\",\"title\":\"Updated By\",\"name\":\"updatedBy\"},\"Value\":{\"type\":\"number\",\"title\":\"Value\",\"name\":\"Value\"}}}}}},\"dataDefinitions\":{\"picklistData\":{\"type\":\"array\",\"properties\":{\"code\":{\"type\":\"string\",\"default\":\"\",\"title\":\"Code\"},\"id\":{\"type\":\"integer\",\"default\":\"-1\",\"title\":\"Id\"},\"name\":{\"type\":\"string\",\"default\":\"\",\"title\":\"Name\"}}}},\"operations\":[{\"name\":\"getPicklist_Status\",\"path\":\"/getPicklist?output=json&objDefId=165395247&fieldDefId=165395359\",\"type\":\"invoke\",\"verb\":\"get\",\"params\":[{\"name\":\"picklistData\",\"xType\":\"ARRAY\",\"type\":\"RESPONSE_BODY\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/getPicklist?output=json&objDefId=165395247&fieldDefId=165395359\"},{\"name\":\"create\",\"path\":\"/create2?output=json&useIds=true&objName=CRM_Offer\",\"type\":\"create\",\"verb\":\"post\",\"params\":[{\"name\":\"CRM_Offer\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"CRM_Offer\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/create2?output=json&useIds=true&objName=CRM_Offer\"},{\"name\":\"read\",\"path\":\"/selectQuery?filter={filter}&objName=CRM_Offer\",\"type\":\"read\",\"verb\":\"get\",\"mappingType\":\"JFP\",\"capabilities\":\"sqlQuery,top,skip,id,orderBy\",\"params\":[{\"name\":\"CRM_Offer\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"},{\"name\":\"filter\",\"type\":\"QUERY\",\"xType\":\"string\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/selectQuery?filter={filter}&objName=CRM_Offer\"},{\"name\":\"update\",\"path\":\"/update2?output=json&useIds=true&objName=CRM_Offer\",\"type\":\"update\",\"verb\":\"put\",\"params\":[{\"name\":\"CRM_Offer\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"CRM_Offer\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/update2?output=json&useIds=true&objName=CRM_Offer\"},{\"name\":\"delete\",\"path\":\"/delete?output=json&id={id}&objName=CRM_Offer\",\"type\":\"delete\",\"verb\":\"delete\",\"params\":[{\"name\":\"CRM_Offer\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"CRM_Offer\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/delete?output=json&id={id}&objName=CRM_Offer\"},{\"name\":\"count\",\"path\":\"/getCount?filter={filter}&objName=CRM_Offer\",\"type\":\"invoke\",\"verb\":\"get\",\"params\":[{\"name\":\"CRM_Offer\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/getCount?filter={filter}&objName=CRM_Offer\"},{\"name\":\"getView_All_CRM_Offers\",\"path\":\"/getPage?output=json&startRow={startRow}&rowsPerPage={rowsPerPage}&viewId=165395303&objName=CRM_Offer\",\"type\":\"invoke\",\"verb\":\"get\",\"mergeMode\":\"EMPTY\",\"params\":[{\"name\":\"CRM_Offer\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/getPage?output=json&startRow={startRow}&rowsPerPage={rowsPerPage}&viewId=165395303&objName=CRM_Offer\"}],\"fn\":{\"getPicklist_Status\":{},\"count\":{},\"getView_All_CRM_Offers\":{}},\"url\":\"https://www.rollbase.com/rest/jsdo\",\"fields\":{\"CRM_Offer\":[{\"type\":\"string\",\"title\":\"Comments\",\"name\":\"comment\"},{\"type\":\"string\",\"title\":\"Created At\",\"format\":\"date-time\",\"name\":\"createdAt\"},{\"type\":\"number\",\"title\":\"Created By\",\"name\":\"createdBy\"},{\"type\":\"string\",\"title\":\"CRM Offer\",\"name\":\"name\"},{\"type\":\"string\",\"title\":\"Customer\",\"name\":\"Customer\"},{\"type\":\"string\",\"title\":\"Description\",\"name\":\"Description\"},{\"type\":\"number\",\"title\":\"ID\",\"name\":\"id\"},{\"type\":\"string\",\"title\":\"Logo\",\"name\":\"Logo\"},{\"type\":\"string\",\"title\":\"Offer Date\",\"format\":\"date\",\"name\":\"Offer_Date\"},{\"type\":\"string\",\"title\":\"Quote ID\",\"name\":\"Quote_ID\"},{\"type\":\"number\",\"title\":\"Status\",\"name\":\"Status\"},{\"type\":\"string\",\"title\":\"Tags\",\"name\":\"tag\"},{\"type\":\"string\",\"title\":\"Updated At\",\"format\":\"date-time\",\"name\":\"updatedAt\"},{\"type\":\"number\",\"title\":\"Updated By\",\"name\":\"updatedBy\"},{\"type\":\"number\",\"title\":\"Value\",\"name\":\"Value\"}]},\"primaryKeys\":{},\"_tempTableName\":\"CRM_Offer\",\"dataProperty\":\"CRM_Offer\",\"generic\":{}}]",
+      "title": "Progress Data Service",
+      "source": "jsdo",
+      "url": "https://www.rollbase.com/rest/jsdo/",
+      "catalogUrl": "https://www.rollbase.com/rest/jsdo/catalog/CRM_Offer.json",
+      "authentication": "form"
+    }
+  ],
+  "name": "kendoUiMobileApp",
+  "navigation": "tabstrip",
+  "view": "authenticationView",
+  "transition": "overlay",
+  "skin": "native"
 }
